@@ -41,6 +41,7 @@ app.use('/homepage', express.static(path.join(__dirname, './build')));
 app.use('/dashboard', express.static(path.join(__dirname, './build')));
 app.use('/login', express.static(path.join(__dirname, './build')));
 app.use('/signup', express.static(path.join(__dirname, './build')));
+app.use('/payment', express.static(path.join(__dirname, './build')));
 
 //Router
 Router(app);
