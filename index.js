@@ -1,5 +1,6 @@
 
 const express = require("express");
+const path = require("path");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const morgan = require("morgan");
@@ -35,10 +36,14 @@ app.use(bodyParser.json());
 
 //HTTP request logger with Morgan
 app.use(morgan("dev"));
+app.use('/', express.static(path.join(__dirname, './build')));
+app.use('/homepage', express.static(path.join(__dirname, './build')));
+app.use('/dashboard', express.static(path.join(__dirname, './build')));
+app.use('/login', express.static(path.join(__dirname, './build')));
+app.use('/signup', express.static(path.join(__dirname, './build')));
 
 //Router
 Router(app);
-
 //Listen server to the specific PORT
 app.listen(config.PORT, () => {
   console.log(`listen port ${config.PORT}`)
